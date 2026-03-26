@@ -1,43 +1,39 @@
-# 📚 Singly Linked List : Find the Middle Node of a Singly Linked List Using Recursion
+# # 🔍 Singly Linked List-To Search an Element in a Linked List
 
-This Python program demonstrates how to find the middle node of a singly linked list using recursion. The program calculates the middle element by utilizing two pointers, with one pointer moving one step at a time (slow) and the other moving two steps at a time (fast). When the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
+This project contains a simple implementation of a **singly linked list** in Python, allowing insertion and searching of elements.
+
+---
 
 ## 🎯 Aim
 
-To write a Python program that:
-- Creates a singly linked list.
-- Uses recursion to find the middle node of the list.
-- In case of an even number of nodes, it returns the second middle element.
+To write a Python program to search for a given element in a singly linked list using object-oriented programming principles.
+
+---
 
 ## 🧠 Algorithm
 
-1. **Node Class**: 
-   - Define a `Node` class to represent each node in the singly linked list. Each node has two attributes: `data` and `next`.
-   
-2. **LinkedList Class**:
-   - Define a `LinkedList` class that manages the linked list with methods to:
-     - `append(data)`: Add a new node to the end of the list.
-     - `get_middle_recursive(slow, fast)`: A recursive helper function to find the middle node using two pointers (slow and fast).
-     - `find_middle()`: A method to call the recursive function and return the middle node's data.
-
-3. **Input**:
-   - First, the program reads an integer `n`, representing the number of elements in the linked list.
-   - Then, it reads `n` space-separated integers to form the linked list.
-
-4. **Recursive Middle Finding**:
-   - The `get_middle_recursive` method uses two pointers to traverse the list:
-     - The `slow` pointer moves one step at a time.
-     - The `fast` pointer moves two steps at a time.
-   - When the `fast` pointer reaches the end, the `slow` pointer will be at the middle node.
-
-5. **Output**:
-   - The program prints the middle element. If the list has an even number of nodes, it returns the second middle element.
+1. **Define a Node class** with `data` and `next` attributes.
+2. **Define a LinkedList class** with:
+   - A `head` pointer initialized to `None`.
+   - A `push()` method to add elements at the beginning.
+   - A `search()` method to check whether a given value exists.
+3. Create a `LinkedList` instance.
+4. Insert the elements **10, 30, 11, 21, 14** using `push()` (which results in reverse order).
+5. Read an integer input from the user.
+6. Use `search()` to check if the element exists in the list.
+7. Output **"Yes"** if found, else **"No"**.
 
 ---
 
 ## 💻 Program
 ```
-def init(self, value): self.data = value self.next = None
+class Node:
+
+def init(self, data):
+
+self.data = data
+
+self.next = None
 class LinkedList:
 
 def init(self):
@@ -46,25 +42,45 @@ self.head = None
 def push(self, new_data):
 
 new_node = Node(new_data)
+
 new_node.next = self.head
+
 self.head = new_node
-def printMiddle(self):
+def search(self, x):
 
-temp = self.head
-count = 1
-while temp is not None:
-    if count==3:
-        print(temp.data)
-    temp = temp.next
-    count+=1
-llist = LinkedList() for i in range(5): value = int(input()) llist.push(value)
+current = self.head
 
-llist.printMiddle()
+while current != None:
+    
+    if current.data == x:
+
+        return True
+    
+    current = current.next
+
+return False
+llist = LinkedList()
+
+llist.push(10);
+
+llist.push(30);
+
+llist.push(11);
+
+llist.push(21);
+
+llist.push(14);
+
+data = int(input())
+
+if llist.search(data):
+
+print("Yes") else:
+
+print("No")
 ```
-
-## Sample Input & Output
-<img width="379" height="213" alt="image" src="https://github.com/user-attachments/assets/8614109b-cf08-4b23-b995-4ef194a4a4d6" />
-
+## Sample Output
+<img width="320" height="177" alt="image" src="https://github.com/user-attachments/assets/5de8b007-8abb-4851-ad19-15c95b746707" />
 
 
 
